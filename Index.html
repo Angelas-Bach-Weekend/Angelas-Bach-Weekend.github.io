@@ -1,0 +1,539 @@
+<!DOCTYPE html>    
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Angela’s Bach Weekend</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Base Serif -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Classy Cursive for Title -->
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+
+  <!-- Elevated Serif -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body { font-family: "Playfair Display", serif; }
+
+    /* HERO */
+    .hero { display: flex; height: 100vh; }
+    .hero-text {
+      flex: 1;
+      background-color: #5b1f33;
+      color: #f6efe8;
+      padding: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-text h1 { font-family: "Italianno", cursive; font-size: 5.8rem; font-weight: 400; margin-bottom: 10px; }
+    .hero-dates { font-family: "Cormorant Garamond", serif; font-size: 1.3rem; letter-spacing: 2px; margin-bottom: 20px; }
+    .hero-text h2 { font-size: 1.6rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 400; }
+    .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* SECTIONS */
+    section { padding: 80px 60px; background-color: #faf7f4; color: #2b1d1d; text-align: center; }
+    section h3 { font-family: "Cormorant Garamond", serif; font-size: 2.2rem; text-align: center; }
+
+    .activity {
+      max-width: 760px;
+      margin: 0 auto;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      opacity: 0.82;
+      text-align: center;
+    }
+
+    /* MEET THE GIRLS HEADER */
+    .meet-header {
+      background-color: #eee7e1;
+      border-top: 2px solid #eee7e1;
+      border-bottom: 2px solid #eee7e1;
+      padding: 30px 0;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    /* MEET THE GIRLS */
+    .bride-feature { text-align: center; margin-bottom: 80px; }
+    .bride-feature img { width: 240px; height: 240px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; }
+    .bride-name { font-family: "Cormorant Garamond", serif; font-size: 1.7rem; font-weight: 600; }
+    .bride-role { font-size: 1.1rem; opacity: 0.8; }
+    .girls-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 50px 35px; max-width: 1100px; margin: 0 auto; }
+    .girl { width: 150px; text-align: center; font-family: "Cormorant Garamond", serif; }
+    .girl img, .placeholder { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; background-color: #ddd; }
+    .girl-name { font-size: 1.1rem; font-weight: 600; }
+    .girl-role { font-size: 0.95rem; opacity: 0.8; }
+    .girl-detail { font-size: 0.9rem; opacity: 0.7; margin-top: 4px; }
+
+    /* WHERE WE'RE GOING */
+    .where-images { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1200px; margin: 50px auto 30px; }
+    .where-images img { width: 100%; height: 220px; object-fit: cover; border-radius: 14px; }
+    .airbnb-link { margin-top: 25px; font-family: "Cormorant Garamond", serif; }
+    .airbnb-link a { text-decoration: none; font-size: 1.1rem; color: #5b1f33; border-bottom: 1px solid #c8b6ac; padding-bottom: 3px; }
+    .airbnb-link a:hover { opacity: 0.7; }
+
+    /* ITINERARY */
+    .itinerary-layout { display: flex; gap: 40px; align-items: flex-start; justify-content: flex-start; flex-wrap: wrap; text-align: left; }
+
+    .itinerary-image img { 
+      width: 350px; 
+      max-width: 100%; 
+      border-radius: 12px; 
+      object-fit: cover; 
+      margin-top: 60px;
+    }
+
+    .schedule-vertical {
+      flex: 1;
+      font-family: "Cormorant Garamond", serif;
+      margin-left: 180px;
+      position: relative;
+    }
+
+    .day-header {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 25px;
+      text-align: left;
+      margin-left: -80px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .time-block {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 25px;
+      font-size: 1.3rem;
+    }
+
+    .time-block .time {
+      width: 140px;
+      font-weight: 600;
+      font-size: 1.3rem;
+      text-align: left;
+      position: relative;
+    }
+
+    .time-block .time::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      width: 240px;
+      height: 1px;
+      background-color: #5b1f33;
+      transform: translateY(-50%);
+      margin-left: 20px;
+    }
+
+    .time-block .activity {
+      flex: 1;
+      text-align: left;
+      opacity: 0.85;
+      font-size: 1.3rem;
+      margin-left: 300px;
+    }
+
+    /* WHAT WE'RE DOING */
+    .doing-card {
+      max-width: 1180px;
+      margin: 0 auto 70px;
+      font-family: "Cormorant Garamond", serif;
+      text-align: center;
+    }
+
+    .doing-card:last-child { margin-bottom: 0; }
+
+    .doing-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .doing-detail {
+      max-width: 760px;
+      margin: 0 auto 30px;
+      font-size: 1.12rem;
+      line-height: 1.8;
+      opacity: 0.82;
+    }
+
+    .doing-images {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .doing-images img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 14px;
+    }
+
+    .doing-images-four {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .doing-images-four img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 14px;
+    }
+
+    .single-doing-image {
+      width: 100%;
+      max-width: 480px;
+      height: 500px;
+      object-fit: cover;
+      object-position: center center;
+      border-radius: 14px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .games-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 1080px;
+      margin: 0 auto;
+      font-family: "Cormorant Garamond", serif;
+      text-align: center;
+    }
+
+    .games-card { padding: 0 48px; }
+
+    .games-card:first-child { border-right: 1px solid #e6dbce; }
+
+    .game-image {
+      width: 100%;
+      max-width: 390px;
+      height: 310px;
+      object-fit: contain;
+      background-color: #f9f3eb;
+      border-radius: 14px;
+      margin: 0 auto 18px;
+      display: block;
+      padding: 10px;
+    }
+
+    .game-title {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .game-detail {
+      font-size: 1.08rem;
+      line-height: 1.8;
+      opacity: 0.8;
+      max-width: 345px;
+      margin: 0 auto;
+    }
+
+    /* WHAT TO BRING - two rows, vertical lines only */
+    .what-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 1080px;
+      margin: 0 auto 56px;
+      font-family: "Cormorant Garamond", serif;
+      text-align: center;
+    }
+    .what-row:last-child { margin-bottom: 0; }
+    .what-card { padding: 0 48px; }
+    .what-card:first-child { border-right: 1px solid #e6dbce; }
+    .what-day {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .what-title {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .what-detail {
+      font-size: 1.08rem;
+      line-height: 1.8;
+      opacity: 0.8;
+      max-width: 345px;
+      margin: 0 auto;
+    }
+
+    /* ROOM ASSIGNMENTS */
+    .room-images {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 1200px;
+      margin: 50px auto 30px;
+    }
+
+    .room-images img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    footer { background-color: #eee7e1; padding: 30px; text-align: center; font-size: 0.9rem; }
+
+    @media (max-width: 900px) {
+      .where-images { grid-template-columns: repeat(2, 1fr); }
+      .itinerary-layout { flex-direction: column; align-items: center; }
+      .schedule-vertical { margin-left: 0; }
+      .time-block { flex-direction: column; }
+      .time-block .time::after { display: none; }
+      .time-block .activity { margin-left: 0; }
+      .day-header { margin-left: 0; text-align: center; }
+
+      .doing-images { grid-template-columns: repeat(1, 1fr); }
+      .doing-images-four { grid-template-columns: repeat(2, 1fr); }
+
+      .games-row {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .games-card:first-child {
+        border-right: none;
+        border-bottom: 1px solid #e6dbce;
+        padding-bottom: 40px;
+      }
+
+      .what-row {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .what-card:first-child {
+        border-right: none;
+        border-bottom: 1px solid #e6dbce;
+        padding-bottom: 40px;
+      }
+
+      .room-images { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-text">
+      <h1>Angela’s Bach Weekend</h1>
+      <div class="hero-dates">September 18–20, 2026</div>
+      <h2>Vineyards & Vows</h2>
+    </div>
+    <div class="hero-image">
+      <img src="wine-corks.jpg" alt="Wine Corks">
+    </div>
+  </div>
+
+  <!-- MEET THE GIRLS -->
+  <section>
+    <div class="meet-header"><h3>Meet the Girls</h3></div>
+
+    <div class="bride-feature">
+      <img src="Angela.JPG" alt="Angela">
+      <div class="bride-name">Angela</div>
+      <div class="bride-role">The Bride</div>
+    </div>
+
+    <div class="girls-grid">
+      <div class="girl"><img src="Danni.jpeg"><div class="girl-name">Danni</div><div class="girl-role">The Maid of Honor</div><div class="girl-detail">Childhood best friend & neighbor</div></div>
+      <div class="girl"><img src="Raelynn.jpeg"><div class="girl-name">Raelynn</div><div class="girl-role">Bridesmaid</div><div class="girl-detail">Long time best friend</div></div>
+      <div class="girl"><img src="Paige.jpeg"><div class="girl-name">Paige</div><div class="girl-role">Bridesmaid</div><div class="girl-detail">Long time best friend</div></div>
+      <div class="girl"><img src="Mickayla.jpeg"><div class="girl-name">Mickayla</div><div class="girl-role">Bridesmaid</div><div class="girl-detail">Long time best friend & former coworker</div></div>
+      <div class="girl"><img src="Trinity.jpg"><div class="girl-name">Trinity</div><div class="girl-role">Mitchell's Baby Momma</div></div>
+      <div class="girl"><img src="HannahB.jpeg"><div class="girl-name">Hannah</div><div class="girl-role">Future Sister-in-law</div></div>
+
+      <!-- NEW ADDITION -->
+      <div class="girl"><img src="Brittany.jpg"><div class="girl-name">Brittany</div><div class="girl-role">Future Sister-in-law</div></div>
+
+      <div class="girl"><img src="Shelby.png"><div class="girl-name">Shelby</div><div class="girl-role">Future Sister-in-law</div></div>
+      
+    </div>
+  </section>
+
+  <!-- WHERE WE'RE GOING -->
+  <section>
+    <div class="meet-header"><h3>Where We're Going</h3></div>
+    <div class="activity">
+      A beautiful cabin on Howard Lake, Michigan with a hot tub, fire pit, and pool table —
+      the perfect spot to celebrate Angela’s bachelorette weekend!
+    </div>
+
+    <div class="where-images">
+      <img src="Airbnb-image1.png">
+      <img src="Airbnb-image2avif.png">
+      <img src="Airbnb-image3.png">
+      <img src="Airbnb-image4.png">
+    </div>
+
+    <div class="airbnb-link">
+      <a href="https://www.airbnb.com/rooms/679183986554632505?photo_id=1457681466&source_impression_id=p3_1787184127_P3NNpxoc1TEp58B4" target="_blank">View the Airbnb Listing</a>
+    </div>
+  </section>
+
+  <!-- ITINERARY -->
+  <section>
+    <div class="meet-header"><h3>Itinerary</h3></div>
+
+    <div class="itinerary-layout">
+      <div class="itinerary-image">
+        <img src="wineglasses.jpg" alt="Wine Glasses">
+      </div>
+
+      <div class="schedule-vertical">
+        <div class="day-header">Friday</div>
+        <div class="time-block"><div class="time">5:00 PM</div><div class="activity">Settle in & Welcome Drinks!</div></div>
+        <div class="time-block"><div class="time">8:00 PM</div><div class="activity">Charcuiterie & Bach Games</div></div>
+
+        <div class="day-header" style="margin-top:40px;">Saturday</div>
+        <div class="time-block"><div class="time">9:00 AM</div><div class="activity">Breakfast</div></div>
+        <div class="time-block"><div class="time">10:00 PM</div><div class="activity">Get Wine Ready!</div></div>
+        <div class="time-block"><div class="time">12:00 PM</div><div class="activity">Winery Time</div></div>
+        <div class="time-block"><div class="time">8:00 PM</div><div class="activity">PJ Party & Pizza</div></div>
+
+        <div class="day-header" style="margin-top:40px;">Sunday</div>
+        <div class="time-block"><div class="time">8:00 AM</div><div class="activity">Pack Up & Tear Down </div></div>
+        <div class="time-block"><div class="time">10:00 AM</div><div class="activity">Breakfast</div></div>
+        <div class="time-block"><div class="time">11:00 AM</div><div class="activity">Check Out</div></div>
+      </div>
+    </div>
+
+    <!-- WHAT WE'RE DOING -->
+    <div class="meet-header" style="margin-top:80px;"><h3>What We’re Doing</h3></div>
+
+    <div class="doing-card">
+      <div class="doing-title">St. Julian</div>
+      <div class="doing-detail">
+        A cozy vineyard stop with beautiful patio seating, wine tasting, and the perfect space to kick off our winery day together.
+      </div>
+      <div class="doing-images">
+        <img src="st.julian1.png" alt="St. Julian Patio">
+        <img src="st.julian2.png" alt="St. Julian Patio">
+        <img src="st.julian3.png" alt="St. Julian Store">
+      </div>
+    </div>
+
+    <div class="doing-card">
+      <div class="doing-title">Warner Vineyards</div>
+      <div class="doing-detail">
+        We’ll continue the afternoon at Warner Vineyards, where we can enjoy more wine, river views, and a relaxed dinner option from the BrewHaus food truck. We can take a vote as a group to eat there, or choose from a few nearby restaurants within walking distance.
+      </div>
+      <div class="doing-images-four">
+        <img src="Warner.jpg" alt="Warner Vineyards">
+        <img src="Warnerriver.jpg" alt="Warner River">
+        <img src="Warnertastingroom.jpg" alt="Warner Tasting Room">
+        <img src="WarnerBrewHaus.jpg" alt="Warner Brew Haus">
+      </div>
+    </div>
+
+    <div class="doing-card">
+      <div class="doing-title">Pizza Bar Dinner</div>
+      <div class="doing-detail">
+        One night we’ll be doing homemade personal pizzas, so everyone can build their own pizza bar style and keep dinner easy, fun, and casual at the house.
+      </div>
+    </div>
+
+    <!-- GAMES & ACTIVITIES -->
+    <div class="meet-header" style="margin-top:80px;"><h3>Games & Activities</h3></div>
+
+    <div class="games-row">
+      <div class="games-card">
+        <img src="Lingerie.jpg" alt="Lingerie Game" class="game-image">
+        <div class="game-title">Lingerie Game</div>
+        <div class="game-detail">
+          Bring a lingerie set for Angela and she’ll guess who brought what.<br><br>
+          Angela’s sizing: 34D top / Small bottoms.
+        </div>
+      </div>
+
+      <div class="games-card">
+        <img src="SpiceItUp.jpg" alt="Spice It Up Game" class="game-image">
+        <div class="game-title">Spice It Up Game</div>
+        <div class="game-detail">
+          Bring your favorite foreplay item to help Angela spice things up from time to time.
+        </div>
+      </div>
+    </div>
+
+    <!-- WHAT TO BRING -->
+    <div class="meet-header" style="margin-top:80px;"><h3>What to Bring</h3></div>
+
+    <div class="what-row">
+      <div class="what-card">
+        <div class="what-day">Friday</div>
+        <div class="what-title">Pretty in Pink</div>
+        <div class="what-detail">
+          Bring something pink for one of our nights at the house.<br>
+          Girly, cute, cozy, or dressed up — whatever feels like you.
+        </div>
+      </div>
+
+      <div class="what-card">
+        <div class="what-day">Saturday</div>
+        <div class="what-title">Something Blue Before “I Do”</div>
+        <div class="what-detail">
+          Blue outfits for winery day.<br>
+          Elevated, fun, and ready for pictures.
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOD / DRINKS FORM -->
+    <div class="meet-header" style="margin-top:80px;"><h3>Food, Drinks &amp; Dietary Preferences 🥂</h3></div>
+    <div class="activity">
+      To make sure everyone is fed, happy, and safe, please fill out this quick form with your
+      food preferences, snack ideas, mimosa juice choices, and any dietary restrictions or allergies.
+    </div>
+
+    <div class="activity" style="margin-top:20px;">
+      This helps me plan groceries for the weekend, including breakfast, snacks, drinks, and anything we may want for the pizza bar.
+    </div>
+
+    <div class="airbnb-link" style="margin-top:30px;">
+      <a href="https://forms.gle/g72KoBFJCsKTxvkE7" target="_blank">
+        Grocery & Dietary Preferences Form
+      </a>
+    </div>
+
+    <!-- ROOM ASSIGNMENTS -->
+    <div class="meet-header" style="margin-top:80px;">
+      <h3>Room Assignments</h3>
+    </div>
+
+    <div class="room-images">
+      <img src="Master.png">
+      <img src="Room2.png">
+      <img src="Room3.png">
+      <img src="Room4.png">
+      <img src="Room5.png">
+      <img src="Room6.png">
+    </div>
+  </section>
+
+  <footer>Cheers to Angela 🥂</footer>
+
+</body>
+</html>
